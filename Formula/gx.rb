@@ -1,20 +1,20 @@
 class Gx < Formula
   desc "CLI to manage Github Actions dependencies"
   homepage "https://github.com/gmeligio/gx"
-  version "0.7.1"
+  version "0.7.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/gmeligio/gx/releases/download/v0.7.1/gx-aarch64-apple-darwin.tar.xz"
-      sha256 "7dd077babe2d200f0655963ae99588fe9f20609b216d32bb6ad51241e21c3756"
+      url "https://github.com/gmeligio/gx/releases/download/v0.7.2/gx-aarch64-apple-darwin.tar.xz"
+      sha256 "54ed42eeb0d1eb4cc81bb81b62fecfa3b20191bdc41032f498bf88e71bb0da3f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/gmeligio/gx/releases/download/v0.7.1/gx-x86_64-apple-darwin.tar.xz"
-      sha256 "1fead0088645cf4069ef76dd622cad36c8b7024519c73721e07d8e9647311813"
+      url "https://github.com/gmeligio/gx/releases/download/v0.7.2/gx-x86_64-apple-darwin.tar.xz"
+      sha256 "aa7941102f79e7116b54b42829c9f6cb39e1321fe52cf3844e68902eb3659bfb"
     end
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/gmeligio/gx/releases/download/v0.7.1/gx-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "6632843410c877c43aa8936eb757d8b0ddcb5940402203914543ef8a9cf8ecd9"
+    url "https://github.com/gmeligio/gx/releases/download/v0.7.2/gx-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "025de04156988d3cb1784d8916d392489719d938db2cac39f49c184fcf995e0a"
   end
   license "MIT"
 
