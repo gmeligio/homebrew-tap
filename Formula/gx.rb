@@ -1,26 +1,19 @@
 class Gx < Formula
   desc "CLI to manage Github Actions dependencies"
   homepage "https://github.com/gmeligio/gx"
-  version "0.8.0"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/gmeligio/gx/releases/download/v0.8.0/gx-aarch64-apple-darwin.tar.xz"
-      sha256 "350a9fdbe9856d65b852fbebdc025e4abffa9988f19222c77dac7874edf791cf"
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/gmeligio/gx/releases/download/v0.8.0/gx-x86_64-apple-darwin.tar.xz"
-      sha256 "b08d2fb76867c8b0aebe878e9e8250025dbc72aaa0b0c64036c27bdd5478ac18"
-    end
+  version "0.8.5"
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/gmeligio/gx/releases/download/v0.8.5/gx-aarch64-apple-darwin.tar.xz"
+    sha256 "0a8cbc623c5dc4bbaea60f38914daac68b1c971f676d9c86a522dd5e96277b55"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/gmeligio/gx/releases/download/v0.8.0/gx-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "4c2d57af289657e7847dc1b4bef5c4864dd0e964868029f7026f948bda0e78b5"
+    url "https://github.com/gmeligio/gx/releases/download/v0.8.5/gx-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "6079ede27c9a97ee2a17861c9ab808d09de8ca6db2f0c564b68ca448e5088175"
   end
   license "MIT"
 
   BINARY_ALIASES = {
     "aarch64-apple-darwin":              {},
-    "x86_64-apple-darwin":               {},
     "x86_64-pc-windows-gnu":             {},
     "x86_64-unknown-linux-gnu":          {},
     "x86_64-unknown-linux-musl-dynamic": {},
@@ -43,9 +36,12 @@ class Gx < Formula
   end
 
   def install
-    bin.install "gx" if OS.mac? && Hardware::CPU.arm?
-    bin.install "gx" if OS.mac? && Hardware::CPU.intel?
-    bin.install "gx" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "gx"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "gx"
+    end
 
     install_binary_aliases!
 
